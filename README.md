@@ -99,6 +99,7 @@ Una volta creato il timer lo possiamo Armare con la funzione
    int timer_settime(timer_t timerid, int flags, const struct itimerspec *v, struct itimerspec *ov)      //approfondire itimerspec
    ```
    - flags se settato a TIMER_ABSTIME setta il timer al valore assoluto di v altrimenti relativo rispetto alla chiamata
+   
 
 - **Sleep**: funzioni per dormire n tempo
    ```c
