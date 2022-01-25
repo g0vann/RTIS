@@ -7,7 +7,7 @@ Con il presente si vogliono raggruppare tutti i principali costrutti e funzioni 
 ## UNIX
 
 - Timeval: struct di libreria per il Tempo    
-   ```
+   ```c
     struct timeval{
       time_t tv_sec;      //secondi
       time_t tv_usec;     //microsecondi (1e+6)
