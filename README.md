@@ -6,7 +6,7 @@ Con il presente si vogliono raggruppare tutti i principali costrutti e funzioni 
 
 ## UNIX
 
-######Time handling and Timers
+**Time handling and Timers** \n
 In questa sezione presentiamo tutti gli elementi fondamentali per una corretta gestione del Tempo e dei Timers partendo dalle **struct** di libreria fondamentali nella definizione delle funzioni.
 
 - **Timeval**: struct di libreria per il Tempo    
