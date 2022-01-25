@@ -94,7 +94,7 @@ I processi possono creare ed inizializzare diversi timers, ognuno di essi quando
    - e la notifica dell'evento
    - t_id l'ID che verrà assegnato al timers se correttamente creato
 
-Una volta creato il timer lo possiamo Armare con la funzione
+   Una volta creato il timer lo possiamo Armare con la funzione
    ```c
    int timer_settime(timer_t timerid, int flags, const struct itimerspec *v, struct itimerspec *ov)      //approfondire itimerspec
    ```
