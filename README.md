@@ -6,6 +6,9 @@ Con il presente si vogliono raggruppare tutti i principali costrutti e funzioni 
 
 ## UNIX
 
+####Time handling and Timers
+In questa sezione presentiamo tutti gli elementi fondamentali per una corretta gestione del Tempo e dei Timers partendo dalle **struct** di libreria fondamentali nella definizione delle funzioni.
+
 - **Timeval**: struct di libreria per il Tempo    
    ```c
     struct timeval{
@@ -35,3 +38,10 @@ Con il presente si vogliono raggruppare tutti i principali costrutti e funzioni 
     ```c
     int setitimer(int witch, const struct itimerval *new_value, struct itimerval *old_value)    //parametro witch scelgo il timpo di Timer, e.g. ITIMER_REAL
     ```
+
+
+##RT-POSIX
+
+####Time handling and Timers
+In questa sezione presentiamo tutti gli elementi fondamentali per una corretta gestione del Tempo e dei Timers partendo dalle **struct** di libreria fondamentali nella definizione delle funzioni.
+
