@@ -46,3 +46,40 @@ In questa sezione presentiamo tutti gli elementi fondamentali per una corretta g
 In questa sezione presentiamo tutti gli elementi fondamentali per una corretta gestione del Tempo e dei Timers partendo dalle **struct** di libreria fondamentali nella definizione delle funzioni.<br>
 Per poter utilizzare correttamente le funzioni proposte sarà necessario includere la Libreria RT-POSIX <time.h>
 
+
+- **Timespec**: struct di libreria per il Tempo<br>
+   equivalente al Timeval di UNIX con la differenza che timespec utilizza i nano secondi quindi (1e+9) di precisione, da considerare nell'utilizzo di clock e timers
+   ```c
+    struct timespec{
+      time_t tv_sec;      //secondi
+      long tv_nsec;     //nanoosecondi (1e+9)
+    }
+    ```
+    
+  Non sono presenti funzioni di libreria di Utility come potrebbe essere la somma di un tempo D al tempo preso in esame, ma possono essere semplicemente implementate dall'utente, ne vediamo un esempio
+  
+  ```c
+  #define NSEC_PER_SEC 1000000000ULL
+  void timespec_add_us(struct timespec *t, uint64_t d) {
+      d *= 1000;
+      t->tv_nsec += d;
+      t->tv_sec += t->tv_nsec / NSEC_PER_SEC;
+      t->tv_nsec %= NSEC_PER_SEC;
+  }
+  ```
+  in tale funzione aggiungiamo dei macrosecondi, unità che spesso considereremo di base, ad un tempo espresso in secondi e nanosecondi ragion per cui dobbiamo prima connvertire al nostro attuale riferimento e poi sommare
+  
+- **Gettin/Setting**: funzione per ricavare e settare il tempo
+   funzione che sostituisce la **gettimeofday()** di UNIX, oltre a prendere il tempo possiamo anche settarlo    
+    ```c
+    int clock_gettime(clockid_t clock_id, struct timespec *tp);
+    int clock_settime(clockid_t clock_id, const struct timespec *tp);
+    ```
+   I parametri di tali funzioni sono il *clock_id* che può essere:
+   -  `CLOCK_REALTIME` rappresenta il clock di sistema real time, tale valore può essere modificato con la *clock_settime()* 
+   -  `CLOCK_MONOTONIC` rappresenta il clock di sistema da quando esso è partito, non può essere modificato
+   -  `CLOCK_THREAD_CPUTIME_ID` rappresenta il tempo di esecuzione del thread specificato a patto che sia stato definito **_POSIX_THREAD_CPUTIME**
+
+
+
+
