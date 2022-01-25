@@ -43,5 +43,6 @@ In questa sezione presentiamo tutti gli elementi fondamentali per una corretta g
 ## RT-POSIX
 
 ### Time handling and Timers
-In questa sezione presentiamo tutti gli elementi fondamentali per una corretta gestione del Tempo e dei Timers partendo dalle **struct** di libreria fondamentali nella definizione delle funzioni.
+In questa sezione presentiamo tutti gli elementi fondamentali per una corretta gestione del Tempo e dei Timers partendo dalle **struct** di libreria fondamentali nella definizione delle funzioni.<br>
+Per poter utilizzare correttamente le funzioni proposte sarà necessario includere la Libreria RT-POSIX <time.h>
 
