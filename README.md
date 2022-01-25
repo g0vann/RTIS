@@ -7,11 +7,12 @@ Con il presente si vogliono raggruppare tutti i principali costrutti e funzioni 
 ## UNIX
 
 - Timeval: struct di libreria per il Tempo    
+    '''
     struct timeval{
       time_t tv_sec;      //secondi
       time_t tv_usec;     //microsecondi (1e+6)
     }
-
+    '''
 - Gettimeofday: funzione per ricavare il tempo trascorso dall'ultima Epoca, tempo attuale
     int gettimeofday(struct timeval *tv, struct timezone *tz) //Timezone la impostiamo NULL 
     
