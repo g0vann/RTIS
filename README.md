@@ -83,7 +83,7 @@ Per poter utilizzare correttamente le funzioni proposte sarà necessario include
    I parametri di tali funzioni sono il *clock_id* che può essere:
    -  `CLOCK_REALTIME` rappresenta il clock di sistema real time, tale valore può essere modificato con la *clock_settime()* 
    -  `CLOCK_MONOTONIC` rappresenta il clock di sistema da quando esso è partito, non può essere modificato
-   -  `CLOCK_THREAD_CPUTIME_ID` rappresenta il tempo di esecuzione del thread specificato a patto che sia stato definito **_POSIX_THREAD_CPUTIME**
+   -  `CLOCK_THREAD_CPUTIME_ID` rappresenta il tempo di esecuzione del thread specificato a patto che sia stato definito *_POSIX_THREAD_CPUTIME*
 
 - **Timers** 
 I processi possono creare ed inizializzare diversi timers, ognuno di essi quando fire genera un segnal event
@@ -106,7 +106,11 @@ Una volta creato il timer lo possiamo Armare con la funzione
    int nanosleep(const struct timespec *req, struct timespec *rem);
    ```
    a differenza del caso UNIX abbiamo una sola sleep che accetta due parametri: in *rem* verrà conservato il tempo che doveva ancora passare nel caso la sleep venga interrotta  prima 
- 
+   ```c
+   int clock_nanosleep(clcokid_t clock_id, int flags, const struct timespec *req, structu timespec *rem)
+   ```
+   a differenza della classica nanosleep possiamo specificare su che clock dormire e specificare con il flags, come fatto sul *settime()*, se sul tempo Assoluto o Relativo. *rem* ha senso solo se il flags è pari a 0, ovvero parliamo di tempo relativo.
+   
 
 
 
