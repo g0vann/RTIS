@@ -90,15 +90,15 @@ I processi possono creare ed inizializzare diversi timers, ognuno di essi quando
    ```c
    int timer_create(clockid_t c_id, struct sigevent *e, timer_t *t_id)
    ```
-      - c_id specifica il tipo (CLOCK_REALTIME/CLCOK_MONOTONIC)
-      - e la notifica dell'evento
-      - t_id l'ID che verrà assegnato al timers se correttamente creato
+   - c_id specifica il tipo (CLOCK_REALTIME/CLCOK_MONOTONIC)
+   - e la notifica dell'evento
+   - t_id l'ID che verrà assegnato al timers se correttamente creato
 
 Una volta creato il timer lo possiamo Armare con la funzione
    ```c
    int timer_settime(timer_t timerid, int flags, const struct itimerspec *v, struct itimerspec *ov)      //approfondire itimerspec
    ```
-      - flags se settato a TIMER_ABSTIME setta il timer al valore assoluto di v altrimenti relativo rispetto alla chiamata
+   - flags se settato a TIMER_ABSTIME setta il timer al valore assoluto di v altrimenti relativo rispetto alla chiamata
 
 - **Sleep**: funzioni per dormire n tempo
    ```c
