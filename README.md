@@ -14,7 +14,8 @@ Con il presente si vogliono raggruppare tutti i principali costrutti e funzioni 
     }
     ```
 - Gettimeofday: funzione per ricavare il tempo trascorso dall'ultima Epoca, tempo attuale
-    int gettimeofday(struct timeval *tv, struct timezone *tz) //Timezone la impostiamo NULL 
+    
+    `int gettimeofday(struct timeval *tv, struct timezone *tz) /*Timezone la impostiamo NULL*/ `
     
 - Type of Timer: i Timer in unix possono essere connessi su 3 Clock differenti:
   - ITIMER_REAL: il real-time system clock, l'ora come la pensiamo noi
