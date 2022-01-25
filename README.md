@@ -38,7 +38,12 @@ In questa sezione presentiamo tutti gli elementi fondamentali per una corretta g
     ```c
     int setitimer(int witch, const struct itimerval *new_value, struct itimerval *old_value)    //parametro witch scelgo il timpo di Timer, e.g. ITIMER_REAL
     ```
-
+- **Sleep**: funzioni per dormire n tempo
+```c
+#include <unistd.h>
+unsigned int sleep(unsigned int seconds);
+int usleep(useconds_t usec);
+```
 
 ## RT-POSIX
 
@@ -79,6 +84,29 @@ Per poter utilizzare correttamente le funzioni proposte sarà necessario include
    -  `CLOCK_REALTIME` rappresenta il clock di sistema real time, tale valore può essere modificato con la *clock_settime()* 
    -  `CLOCK_MONOTONIC` rappresenta il clock di sistema da quando esso è partito, non può essere modificato
    -  `CLOCK_THREAD_CPUTIME_ID` rappresenta il tempo di esecuzione del thread specificato a patto che sia stato definito **_POSIX_THREAD_CPUTIME**
+
+- **Timers** 
+I processi possono creare ed inizializzare diversi timers, ognuno di essi quando fire genera un segnal event
+```c
+int timer_create(clockid_t c_id, struct sigevent *e, timer_t *t_id)
+```
+   - c_id specifica il tipo (CLOCK_REALTIME/CLCOK_MONOTONIC)
+   - e la notifica dell'evento
+   - t_id l'ID che verrà assegnato al timers se correttamente creato
+
+Una volta creato il timer lo possiamo Armare con la funzione
+```c
+int timer_settime(timer_t timerid, int flags, const struct itimerspec *v, struct itimerspec *ov)      //approfondire itimerspec
+```
+   - flags se settato a TIMER_ABSTIME setta il timer al valore assoluto di v altrimenti relativo rispetto alla chiamata
+
+- **Sleep**: funzioni per dormire n tempo
+```c
+#include <time.h>
+int nanosleep(const struct timespec *req, struct timespec *rem);
+```
+a differenza del caso UNIX abbiamo una sola sleep che accetta due parametri: in *rem* verrà conservato il tempo che doveva ancora passare nel caso la sleep venga interrotta prima 
+ 
 
 
 
