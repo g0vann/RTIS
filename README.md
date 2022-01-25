@@ -20,7 +20,7 @@ Con il presente si vogliono raggruppare tutti i principali costrutti e funzioni 
     ```
     
 - Type of Timer: i Timer in unix possono essere connessi su 3 Clock differenti:
-  - ITIMER_REAL: il real-time system clock, l'ora come la pensiamo noi
+  - `ITIMER_REAL`: il real-time system clock, l'ora come la pensiamo noi
   - ITEMER_VIRTUAL: il tempo viartuale trascorso, ovvero il tempo che il processo ha trascorso in esecuzione
   - ITIMER_PROF: il tempo virtuale più il tempo che il kernel ha impiegato a schedularlo
 
