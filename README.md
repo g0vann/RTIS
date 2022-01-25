@@ -15,7 +15,7 @@ Con il presente si vogliono raggruppare tutti i principali costrutti e funzioni 
     ```
 - Gettimeofday: funzione per ricavare il tempo trascorso dall'ultima Epoca, tempo attuale
     
-    ```
+    ```c
     int gettimeofday(struct timeval *tv, struct timezone *tz) /*Timezone la impostiamo NULL*/ 
     ```
     
@@ -25,13 +25,13 @@ Con il presente si vogliono raggruppare tutti i principali costrutti e funzioni 
   - ITIMER_PROF: il tempo virtuale più il tempo che il kernel ha impiegato a schedularlo
 
 - Itimerval: struct di libreria per il Timer
-    ```
+    ```c
     struct itimerval{
       struct timeval it_interval;    //il periodo in caso di timer periodici
       struct timeval it_value;       //tempo alla prossima attivazione 
     }
     ```
 - Setitimer: funzione per settare il Timer che al fire signal con un SIGALARM
-    ```
+    ```c
     int setitimer(int witch, const struct itimerval *new_value, struct itimerval *old_value)    //parametro witch scelgo il timpo di Timer, e.g. ITIMER_REAL
     ```
