@@ -113,6 +113,63 @@ I processi possono creare ed inizializzare diversi timers, ognuno di essi quando
    a differenza della classica nanosleep possiamo specificare su che clock dormire e specificare con il flags, come fatto sul *settime()*, se sul tempo Assoluto o Relativo. *rem* ha senso solo se il flags è pari a 0, ovvero parliamo di tempo relativo.
    
 
+## Scheduling Function
+   Per poter osservare i task attivi nel sistema e le loro priorità utilizziamo il comando **ps -eLfc**
+
+### Sched.h - Libreria di Linux
+   ```c
+   int sched_setscheduler(pid_t pid, int policy, const struct sched_param *param);
+   
+   struct sched_param{
+      int sched_priority;
+   };
+   ```
+Tra i parametri di tale funzione troviamo
+   - pid: identificativo del task, se settato a 0 si riferisce al task chiamante
+   - policy: può essere SCHED_FIFO, SCHED_RR, SCHED_OTHER
+   - param: la priorità da dare
+  
+   ```c
+   struct shced_param sp;
+   sp.sched_priority = 11;
+  
+   shced_setscheduler(0, SCHED_FIFO, &sp); //in questo modo abbiamo assegnato priorità 11 al task chiamante (avrà Priorità 40+11=51 dato che i RT partono da 40)
+   ```
 
 
+### Pthread scheduling
+   Un metodo alternativo per settare la priorità e scheduling dei task è tramite gli attributi dei pthreads, per farlo utilizziamo la funzione:
+   - Settera la Policy
+      ```c
+      include <pthread.h>
+
+      int pthread_attr_setschedpolicy(pthread_attr_t *attr, int polocy); //Policy può essere  SCHED_FIFO, SCHED_RR o SCHED_OTHER
+      ```
+   - Settare la Priority
+      ```c
+      pthread_t th;
+      pthread_attr_t myattr;
+      pthread_attr_init(&myattr);
+      
+      struct sched_param myparam;
+      myparam.sched_priority = <value>;
+      pthread_attr_setschedparam(&myattr, &myparam);  
+      ```
+   - Settare uno scheduling esplicito
+      Di default il task figlio eredita gli attributi di scheduling dal padre (ad esempio il main) quindi dobbiamo esplicitare cosa deve ereditare
+      ```c
+      int pthread_attr_setinheritsched(pthread_attr_t *attr, int inheritsched);
+   
+      ```  
+      - inheritsched può essere: PTHREAD_INHERIT_SCHED (quella di defaul, quindi del padre) oppure PTHREAD_EXPLICIT_SCHED allora il thread erediterà gli attributi da noi settati
+     
+   - Creazione del Pthread
+      	una volta creato la Policy, Priority e lo scheduling Explicit possiamo creare il pthread
+         ```c
+         pthread_create(&th, &myattr, thread_code, &thread_params);
+         ```
+         ricordandoci di distruggere poi l'**attr**
+         ```c
+         pthread_attr_destroy(&myattr);
+         ```
 
