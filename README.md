@@ -173,3 +173,15 @@ Tra i parametri di tale funzione troviamo
       pthread_attr_destroy(&myattr);
       ```
 
+## Resource Management with RT-POSIX
+
+   ### Mutex
+   Evitare la Priority Inversion controllando le risorse esclusive con i **Phtread Mutex**
+   ```c
+   int pthread_mutexattr_getprotocol(const pthread_mutexattr_t *attr, int *protocol);    //Protocol può essere PTHREAD_PRIO_NONE (nessuno), PTHREAD_PRIO_INHERIT (Priority inheritance), PTHREAD_PRIO_PROTECT (Priority Ceiling)
+   int pthread_mutezattr_setprotocol(pthread_mutexattr_t *attr, int protocol);
+   
+   int pthread_mutexattr_setprioceiling(pthread_mutexattr_t *attr, int ceiling);    //Nel caso di Priority Ceiling
+   ```
+   
+   
