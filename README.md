@@ -164,12 +164,12 @@ Tra i parametri di tale funzione troviamo
       - inheritsched può essere: PTHREAD_INHERIT_SCHED (quella di defaul, quindi del padre) oppure PTHREAD_EXPLICIT_SCHED allora il thread erediterà gli attributi da noi settati
      
    - Creazione del Pthread
-      	una volta creato la Policy, Priority e lo scheduling Explicit possiamo creare il pthread
-            ```c
-            pthread_create(&th, &myattr, thread_code, &thread_params);
-            ```
-         ricordandoci di distruggere poi l'**attr**
-            ```c
-            pthread_attr_destroy(&myattr);
-            ```
+      una volta creato la Policy, Priority e lo scheduling Explicit possiamo creare il pthread
+      ```c
+      pthread_create(&th, &myattr, thread_code, &thread_params);
+      ```
+      ricordandoci di distruggere poi l'**attr**
+      ```c
+      pthread_attr_destroy(&myattr);
+      ```
 
