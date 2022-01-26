@@ -165,11 +165,11 @@ Tra i parametri di tale funzione troviamo
      
    - Creazione del Pthread
       	una volta creato la Policy, Priority e lo scheduling Explicit possiamo creare il pthread
-         ```c
-         pthread_create(&th, &myattr, thread_code, &thread_params);
-         ```
+            ```c
+            pthread_create(&th, &myattr, thread_code, &thread_params);
+            ```
          ricordandoci di distruggere poi l'**attr**
-         ```c
-         pthread_attr_destroy(&myattr);
-         ```
+            ```c
+            pthread_attr_destroy(&myattr);
+            ```
 
