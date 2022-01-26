@@ -179,9 +179,18 @@ Tra i parametri di tale funzione troviamo
    Evitare la Priority Inversion controllando le risorse esclusive con i **Phtread Mutex**
    ```c
    int pthread_mutexattr_getprotocol(const pthread_mutexattr_t *attr, int *protocol);    //Protocol può essere PTHREAD_PRIO_NONE (nessuno), PTHREAD_PRIO_INHERIT (Priority inheritance), PTHREAD_PRIO_PROTECT (Priority Ceiling)
-   int pthread_mutezattr_setprotocol(pthread_mutexattr_t *attr, int protocol);
+   int pthread_mutexattr_setprotocol(pthread_mutexattr_t *attr, int protocol);
    
    int pthread_mutexattr_setprioceiling(pthread_mutexattr_t *attr, int ceiling);    //Nel caso di Priority Ceiling
    ```
    
+   Esempio di PI con i Mutex
+   ```c
+   pthread_mutex_t mylock;
+   pthread_mutexattr_t mymutexattr;
+   pthread_mutexattr_init(&mymutexattr);
+   pthread_mutexattr_setprotocol(&mymutexattr,PTHREAD_PRIO_INHERIT);
+   pthread_mutex_init(&mylock, &mymutexattr);
+   pthread_mutexattr_destroy(&mymutexattr);
+   ```
    
