@@ -1,0 +1,17 @@
+https://bitmovin.com/demos/stream-test?format=smooth&amp;manifest=https%3A%2F%2Fhss-live-hd-nowtv.skycdn.it%2F23035%2FFHD%2Fskysport24.isml%2FManifest&amp;drm=playready&amp;license=https%3A%2F%2Ftest.playready.microsoft.com%2Fservice%2Frightsmanager.asmx%3Fcfg%3D%28contentkey%3AA87z6V8R8Cks3ffw1CvyFg%3D%3D%2Ckid%3Aheader%2
+Sky Sport 24 HD
+
+href="https://bitmovin.com/demos/stream-test?format=smooth&amp;manifest=https%3A%2F%2Fhss-live-hd-nowtv.skycdn.it%2F23023%2FFHD%2Fskysportuno.isml%2FManifest&amp;drm=playready&amp;license=https%3A%2F%2Ftest.playready.microsoft.com%2Fservice%2Frightsmanager.asmx%3Fcfg%3D%28contentkey%3AyNntfeTGYrV0DLeLNnSmIQ%3D%3D%2Ckid%3Aheader%29
+Sky Sport Uno HD
+
+https://bitmovin.com/demos/stream-test?format=smooth&amp;manifest=https%3A%2F%2Fhss-live-hd-nowtv.skycdn.it%2F23478%2FFHD%2Fskysportf1.isml%2FManifest&amp;drm=playready&amp;license=https%3A%2F%2Ftest.playready.microsoft.com%2Fservice%2Frightsmanager.asmx%3Fcfg%3D%28contentkey%3AOX7oxqSNkzRFL%2F1n1uWrUA%3D%3D%2Ckid%3Aheader%29
+Sport F1 HD
+
+https://bitmovin.com/demos/stream-test?format=smooth&amp;manifest=https%3A%2F%2Fhss-live-hd-nowtv.skycdn.it%2F23483%2FFHD%2Fskysportmotogp.isml%2FManifest&amp;drm=playready&amp;license=https%3A%2F%2Ftest.playready.microsoft.com%2Fservice%2Frightsmanager.asmx%3Fcfg%3D%28contentkey%3AvtLIUbVyTSPJPnjuRwiUUg%3D%3D%2Ckid%3Aheader%29
+Sky Sport MotoGP HD
+
+https://bitmovin.com/demos/stream-test?format=smooth&amp;manifest=https%3A%2F%2Fhss-live-hd-nowtv.skycdn.it%2F23209%2FFHD%2Fskysportseriea.isml%2FManifest&amp;drm=playready&amp;license=https%3A%2F%2Ftest.playready.microsoft.com%2Fservice%2Frightsmanager.asmx%3Fcfg%3D%28contentkey%3AmrOOPe96Ttb4NtF2B5Z41Q%3D%3D%2Ckid%3Aheader%29
+Sky Sport Calcio HD
+
+https://bitmovin.com/demos/stream-test?format=smooth&amp;manifest=https%3A%2F%2Fhss-live-hd-nowtv.skycdn.it%2F22559%2FFHD%2Fskysporttennis.isml%2FManifest&amp;drm=playready&amp;license=https%3A%2F%2Ftest.playready.microsoft.com%2Fservice%2Frightsmanager.asmx%3Fcfg%3D%28contentkey%3AoOXQKrJJqswp9%2FLCwSdbhQ%3D%3D%2Ckid%3Aheader%29
+Sky Sport Tennis HD
